@@ -21,16 +21,14 @@ cloudinary.config({
 const userRoutes = require("./routes/user");
 const charactersRoutes = require("./routes/characters");
 const comicsRoutes = require("./routes/comics");
-const offerRoutes = require("./routes/offer");
 
 app.use(userRoutes);
 app.use(charactersRoutes);
 app.use(comicsRoutes);
-app.use(offerRoutes);
 
-// app.get("/", (req, res) => {
-//   res.status(201).json({ message: "Bienvenue sur le site de marvel !!" });
-// });
+app.get("/", (req, res) => {
+  res.status(201).json({ message: "Bienvenue sur le site de marvel !!" });
+});
 
 app.all("*", (req, res) => {
   res.status(404).json({ message: "This route does not available !!" });
